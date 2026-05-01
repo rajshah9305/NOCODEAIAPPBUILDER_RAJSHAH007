@@ -104,7 +104,9 @@ export default function Editor() {
     const a = document.createElement("a");
     a.href = url;
     a.download = `${app?.title || "app"}.html`;
+    document.body.appendChild(a);
     a.click();
+    document.body.removeChild(a);
     URL.revokeObjectURL(url);
     toast.success("App exported successfully");
   };
